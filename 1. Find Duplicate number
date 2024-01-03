@@ -1,0 +1,58 @@
+287. Find duplicate number
+
+bruteforce:
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==nums[i+1]){
+                return nums[i];
+            }
+        }
+        return -1;
+        
+    }
+};
+
+better:
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int n = nums.size();
+        int hash[n+1];
+        for(int i=0;i<=n;i++){
+            hash[i]=0;
+        }
+        for(int i=0;i<n;i++){
+            if(hash[nums[i]]==0){
+                hash[nums[i]]++;
+            }
+            else{
+                return nums[i];
+            }
+        }
+        return -1;
+        
+    }
+};
+
+optimal:
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int slow = 0;
+        int fast = 0;
+        do{
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }while(slow!=fast);
+        slow = 0;
+        while(slow!=fast){
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
+        
+    }
+};
