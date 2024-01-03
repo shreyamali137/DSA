@@ -1,0 +1,62 @@
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+
+Bruteforce:
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        set<int>s;
+        for(int i=0;i<nums.size();i++){
+            s.insert(nums[i]);
+        }
+        int k=0;
+        for(auto i:s){
+            nums[k]=i;
+            k++;
+        }
+        return k;
+        
+    }
+};
+T.C. = o(nlogn)+o(n)
+S.C. = o(n)
+
+Better:
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        vector<int>v;
+        int k=0;
+        v.push_back(nums[0]);
+        for(int i=1;i<nums.size();i++){
+            if(v[k]!=nums[i]){
+                k++;
+                v.push_back(nums[i]);
+            }
+        }
+        for(int i=0;i<=k;i++){
+            nums[i]=v[i];
+        }
+        return k+1;
+        
+    }
+};
+T.C.=o(n)
+S.C.=o(n)
+
+optimal:
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int k=0;
+        for(int i=1;i<nums.size();i++){
+            if(nums[k]!=nums[i]){
+                k++;
+                nums[k]=nums[i];
+            }
+        }
+        return k+1;
+        
+    }
+};
+T.C.=o(n)
+S.C.=o(1)
