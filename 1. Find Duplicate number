@@ -14,6 +14,8 @@ public:
         
     }
 };
+T.C. = o(nlogn)+o(n)
+S.C. = o(n)
 
 better:
 class Solution {
@@ -36,6 +38,8 @@ public:
         
     }
 };
+T.C.=o(n)
+S.C.=o(n)
 
 optimal:
 class Solution {
@@ -56,3 +60,5 @@ public:
         
     }
 };
+T.C. = o(n)
+S.C. = o(1)
