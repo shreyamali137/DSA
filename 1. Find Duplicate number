@@ -1,4 +1,5 @@
-287. Find duplicate number
+https://leetcode.com/problems/find-the-duplicate-number/
+
 
 bruteforce:
 class Solution {
