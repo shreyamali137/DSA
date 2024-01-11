@@ -20,6 +20,36 @@ public:
     }
 };
 T.C.=o(2n)
+S.C. = o(n)
+
+better:
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        // vector<int> arr;
+        int count=0;
+        ListNode *curr=head;
+        while(curr!=NULL){
+            // int value=curr->val;
+            // arr.push_back(value);
+            curr=curr->next;
+            count++;
+        }
+        count--;
+        curr=head;
+        int ans=0;
+        while(curr!=NULL){
+            int a = pow(2,count)*(curr->val);
+            ans = ans+a;
+            count--;
+            curr=curr->next;
+
+        }
+        return ans;
+    }
+};
+T.C. = o(2n)
+S.C.=o(1)
 
 optimal:
 class Solution {
@@ -38,3 +68,4 @@ public:
     }
 };
 T.C. = o(n)
+S.C.=o(1)
