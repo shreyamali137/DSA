@@ -1,0 +1,40 @@
+Bruteforce:
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        ListNode *p = head;
+        int count=0;
+        vector<int>v;
+        while(p!=NULL){
+            count++;
+            v.push_back(p->val);
+            p=p->next;
+        }
+        int ans=0;
+        for(int i=0;i<v.size();i++){
+            int a = v[i]*pow(2,count-1);
+            count--;
+            ans=ans+a;
+        }
+        return ans;
+    }
+};
+T.C.=o(2n)
+
+optimal:
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        ListNode *p = head;
+        int ans = 0;
+        while(p!=NULL){
+            int a = (p->val);
+            ans = ans*2;
+            ans = ans+a;
+            p=p->next;
+        }
+        return ans;
+        
+    }
+};
+T.C. = o(n)
