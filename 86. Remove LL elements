@@ -1,0 +1,25 @@
+https://leetcode.com/problems/remove-linked-list-elements/
+
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        if(head==NULL)return head;
+        ListNode* p = new ListNode(-1);
+        p->next=head;
+        ListNode* q = p;
+        while(q->next!=NULL){
+            if(q->next->val==val){
+                q->next=q->next->next;
+                continue;
+            }
+            q=q->next;
+        }
+        p=p->next;
+        return p;
+        
+        
+        
+    }
+};
+T.C.=o(n)
+S.C.=o(1)
