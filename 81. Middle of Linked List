@@ -19,7 +19,7 @@ public:
         
     }
 };
-T.C. = o(n)+o(n)
+T.C. = o(n)+o(n/2)
 
 optimal:
 class Solution {
